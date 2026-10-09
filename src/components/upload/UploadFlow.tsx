@@ -59,23 +59,46 @@ export function UploadFlow() {
     setShowDetected(false);
   };
 
-  const view = upload.isError ? "error" : showDetected && paper ? "detected" : file && (upload.isPending || paper) ? "progress" : "idle";
+  const view = upload.isError
+    ? "error"
+    : showDetected && paper
+      ? "detected"
+      : file && (upload.isPending || paper)
+        ? "progress"
+        : "idle";
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div key={view} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.2 }}>
+      <motion.div
+        key={view}
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -6 }}
+        transition={{ duration: 0.2 }}
+      >
         {view === "idle" && <UploadDropzone onFile={handleFile} error={validationError} />}
-        {view === "progress" && file && <UploadProgress filename={file.name} progress={upload.progress} done={!!paper} />}
+        {view === "progress" && file && (
+          <UploadProgress filename={file.name} progress={upload.progress} done={!!paper} />
+        )}
         {view === "detected" && paper && (
-          <PaperDetectedCard paper={paper} lang={lang} onLangChange={setLang} onAnalyze={analyze} analysisStep={step} />
+          <PaperDetectedCard
+            paper={paper}
+            lang={lang}
+            onLangChange={setLang}
+            onAnalyze={analyze}
+            analysisStep={step}
+          />
         )}
         {view === "error" && (
           <div role="alert" className="rounded-3xl border bg-card p-8 text-center shadow-soft">
             <AlertCircle className="mx-auto size-6 text-destructive" aria-hidden />
             <p className="mt-3 font-semibold">The upload didn't complete.</p>
-            <p className="mt-1 text-sm text-muted-foreground">Check your connection and try again.</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Check your connection and try again.
+            </p>
             <Button onClick={reset} variant="outline" className="mt-5 rounded-xl">
-              <RotateCcw className="size-4" aria-hidden />Try again
+              <RotateCcw className="size-4" aria-hidden />
+              Try again
             </Button>
           </div>
         )}

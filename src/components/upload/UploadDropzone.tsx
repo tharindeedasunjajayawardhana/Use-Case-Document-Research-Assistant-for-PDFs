@@ -22,7 +22,10 @@ export function UploadDropzone({ onFile, error }: Props) {
   return (
     <div>
       <div
-        onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
+        onDragOver={(e) => {
+          e.preventDefault();
+          setDragging(true);
+        }}
         onDragLeave={() => setDragging(false)}
         onDrop={onDrop}
         onClick={() => inputRef.current?.click()}
@@ -40,12 +43,17 @@ export function UploadDropzone({ onFile, error }: Props) {
         <Button
           type="button"
           className="mt-3 rounded-xl px-5"
-          onClick={(e) => { e.stopPropagation(); inputRef.current?.click(); }}
+          onClick={(e) => {
+            e.stopPropagation();
+            inputRef.current?.click();
+          }}
           aria-describedby="upload-hint upload-error"
         >
           Choose PDF
         </Button>
-        <p id="upload-hint" className="mt-4 text-xs text-muted-foreground">One paper at a time · PDF only · max 20 MB</p>
+        <p id="upload-hint" className="mt-4 text-xs text-muted-foreground">
+          One paper at a time · PDF only · max 20 MB
+        </p>
         <input
           ref={inputRef}
           type="file"
@@ -63,7 +71,8 @@ export function UploadDropzone({ onFile, error }: Props) {
       <div id="upload-error" aria-live="assertive">
         {error && (
           <p className="mt-3 flex items-center justify-center gap-2 text-sm text-destructive">
-            <AlertCircle className="size-4" aria-hidden />{error}
+            <AlertCircle className="size-4" aria-hidden />
+            {error}
           </p>
         )}
       </div>

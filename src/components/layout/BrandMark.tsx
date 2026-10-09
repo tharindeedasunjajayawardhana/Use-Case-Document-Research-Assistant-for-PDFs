@@ -6,7 +6,9 @@ export function BrandMark({ showName = true }: { showName?: boolean }) {
       <span className="grid size-8 place-items-center rounded-xl bg-primary text-primary-foreground shadow-soft">
         <BookOpenText className="size-4" aria-hidden />
       </span>
-      {showName && <span className="text-sm font-semibold tracking-tight">AI Research Assistant</span>}
+      {showName && (
+        <span className="text-sm font-semibold tracking-tight">AI Research Assistant</span>
+      )}
     </span>
   );
 }

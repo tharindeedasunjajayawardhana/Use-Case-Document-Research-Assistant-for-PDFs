@@ -21,9 +21,18 @@ export function ThemeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="rounded-xl">
         <DropdownMenuRadioGroup value={theme} onValueChange={(v) => setTheme(v as ThemePreference)}>
-          <DropdownMenuRadioItem value="light"><Sun className="mr-2 size-4" aria-hidden />Light</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="dark"><Moon className="mr-2 size-4" aria-hidden />Dark</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="system"><Monitor className="mr-2 size-4" aria-hidden />System</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="light">
+            <Sun className="mr-2 size-4" aria-hidden />
+            Light
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="dark">
+            <Moon className="mr-2 size-4" aria-hidden />
+            Dark
+          </DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="system">
+            <Monitor className="mr-2 size-4" aria-hidden />
+            System
+          </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>

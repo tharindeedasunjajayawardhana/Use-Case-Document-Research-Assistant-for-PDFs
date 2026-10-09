@@ -10,7 +10,10 @@ export const Route = createFileRoute("/paper/$id")({
   head: () => ({
     meta: [
       { title: "Paper workspace — AI Research Assistant" },
-      { name: "description", content: "Summary and citation-grounded chat for your uploaded research paper." },
+      {
+        name: "description",
+        content: "Summary and citation-grounded chat for your uploaded research paper.",
+      },
       { property: "og:title", content: "Paper workspace — AI Research Assistant" },
       { property: "og:description", content: "Summary and citation-grounded chat for your paper." },
       { property: "og:type", content: "website" },

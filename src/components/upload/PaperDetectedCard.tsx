@@ -26,15 +26,21 @@ export function PaperDetectedCard({ paper, lang, onLangChange, onAnalyze, analys
       className="rounded-3xl border bg-card p-6 shadow-lifted sm:p-8"
     >
       <div className="flex items-center gap-2 text-sm text-success">
-        <CheckCircle2 className="size-4" aria-hidden />Uploaded
+        <CheckCircle2 className="size-4" aria-hidden />
+        Uploaded
       </div>
-      <h2 id="detected-title" className="mt-2 text-xl font-semibold tracking-tight">Paper detected</h2>
+      <h2 id="detected-title" className="mt-2 text-xl font-semibold tracking-tight">
+        Paper detected
+      </h2>
       <p className="mt-1 truncate text-sm text-muted-foreground">{paper.filename}</p>
 
       <dl className="mt-6 grid grid-cols-2 gap-3">
         <div className="rounded-2xl border bg-background p-4">
           <dt className="text-xs text-muted-foreground">Language</dt>
-          <dd className="mt-1 font-semibold"><span aria-hidden>{languageFlag(paper.language)} </span>{paper.language_name}</dd>
+          <dd className="mt-1 font-semibold">
+            <span aria-hidden>{languageFlag(paper.language)} </span>
+            {paper.language_name}
+          </dd>
         </div>
         <div className="rounded-2xl border bg-background p-4">
           <dt className="text-xs text-muted-foreground">Pages</dt>
@@ -46,9 +52,12 @@ export function PaperDetectedCard({ paper, lang, onLangChange, onAnalyze, analys
 
       <div className="mt-6">
         <ResponseLanguageSelect value={lang} onChange={onLangChange} />
-        <p className="mt-2 text-xs text-muted-foreground">Auto answers in the language used in your question.</p>
+        <p className="mt-2 text-xs text-muted-foreground">
+          Auto answers in the language used in your question.
+        </p>
         <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-primary">
-          <CheckCircle2 className="size-3.5" aria-hidden />Multilingual retrieval enabled
+          <CheckCircle2 className="size-3.5" aria-hidden />
+          Multilingual retrieval enabled
         </p>
       </div>
 
@@ -57,11 +66,14 @@ export function PaperDetectedCard({ paper, lang, onLangChange, onAnalyze, analys
           <AnalysisStepper current={analysisStep} />
         ) : (
           <Button onClick={onAnalyze} className="h-11 w-full rounded-xl">
-            <Sparkles className="size-4" aria-hidden />Analyze paper
+            <Sparkles className="size-4" aria-hidden />
+            Analyze paper
           </Button>
         )}
       </div>
-      <p className="mt-4 text-center text-xs text-muted-foreground">Your original paper stays untouched.</p>
+      <p className="mt-4 text-center text-xs text-muted-foreground">
+        Your original paper stays untouched.
+      </p>
     </motion.section>
   );
 }

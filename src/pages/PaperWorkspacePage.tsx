@@ -28,7 +28,8 @@ export function PaperWorkspacePage({ paperId, lang, onLangChange }: Props) {
     return (
       <main className="grid min-h-screen place-items-center" aria-live="polite">
         <p className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Loader2 className="size-4 animate-spin" aria-hidden />Analyzing document…
+          <Loader2 className="size-4 animate-spin" aria-hidden />
+          Analyzing document…
         </p>
       </main>
     );
@@ -44,9 +45,12 @@ export function PaperWorkspacePage({ paperId, lang, onLangChange }: Props) {
           action={
             <div className="flex gap-2">
               <Button variant="outline" className="rounded-xl" onClick={() => paper.refetch()}>
-                <RotateCcw className="size-4" aria-hidden />Retry
+                <RotateCcw className="size-4" aria-hidden />
+                Retry
               </Button>
-              <Button asChild className="rounded-xl"><Link to="/">Upload a paper</Link></Button>
+              <Button asChild className="rounded-xl">
+                <Link to="/">Upload a paper</Link>
+              </Button>
             </div>
           }
         />
@@ -57,10 +61,19 @@ export function PaperWorkspacePage({ paperId, lang, onLangChange }: Props) {
   return (
     <CitationProvider>
       <div className="flex min-h-screen flex-col">
-        <WorkspaceTopBar paper={p} title={summary.data?.title} lang={lang} onLangChange={onLangChange} />
+        <WorkspaceTopBar
+          paper={p}
+          title={summary.data?.title}
+          lang={lang}
+          onLangChange={onLangChange}
+        />
         <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6 sm:px-6 sm:py-8">
           {!warningDismissed && (
-            <LowTextWarning pages={p.low_text_pages} onDismiss={() => setWarningDismissed(true)} className="mb-6" />
+            <LowTextWarning
+              pages={p.low_text_pages}
+              onDismiss={() => setWarningDismissed(true)}
+              className="mb-6"
+            />
           )}
           <WorkspaceTabs paperId={p.id} lang={lang} />
         </main>

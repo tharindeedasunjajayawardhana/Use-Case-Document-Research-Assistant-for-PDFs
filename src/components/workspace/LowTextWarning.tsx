@@ -20,7 +20,9 @@ export function LowTextWarning({ pages, onDismiss, className }: Props) {
     >
       <ScanText className="mt-0.5 size-4 shrink-0 text-warning" aria-hidden />
       <p className="flex-1 leading-relaxed">
-        <span className="font-medium">{formatPageRanges(pages)} appear to be scanned or image-based.</span>{" "}
+        <span className="font-medium">
+          {formatPageRanges(pages)} appear to be scanned or image-based.
+        </span>{" "}
         Text extraction may be incomplete for these pages.
       </p>
       {onDismiss && (

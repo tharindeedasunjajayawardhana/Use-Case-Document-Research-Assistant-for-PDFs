@@ -11,7 +11,9 @@ interface Props {
 export function SourceList({ pages, sources, label = "full", emptyText }: Props) {
   return (
     <div className="mt-4 border-t pt-3">
-      <h4 className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Sources</h4>
+      <h4 className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+        Sources
+      </h4>
       {pages.length ? (
         <ul className="mt-2 flex flex-wrap gap-1.5" aria-label="Source pages">
           {pages.map((p) => (

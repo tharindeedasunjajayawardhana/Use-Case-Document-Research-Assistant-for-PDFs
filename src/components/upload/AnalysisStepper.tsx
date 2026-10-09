@@ -24,10 +24,16 @@ export function AnalysisStepper({ current }: { current: number }) {
                 state === "active" && "border-primary text-primary",
               )}
             >
-              {state === "done" ? <Check className="size-3.5" aria-hidden /> : state === "active" ? <Loader2 className="size-3.5 animate-spin" aria-hidden /> : null}
+              {state === "done" ? (
+                <Check className="size-3.5" aria-hidden />
+              ) : state === "active" ? (
+                <Loader2 className="size-3.5 animate-spin" aria-hidden />
+              ) : null}
             </span>
             <span className={state === "active" ? "font-medium" : undefined}>{label}</span>
-            <span className="sr-only">{state === "done" ? "complete" : state === "active" ? "in progress" : "pending"}</span>
+            <span className="sr-only">
+              {state === "done" ? "complete" : state === "active" ? "in progress" : "pending"}
+            </span>
           </motion.li>
         );
       })}

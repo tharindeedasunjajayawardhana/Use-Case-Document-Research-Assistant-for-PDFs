@@ -26,7 +26,9 @@ export function StatusMessage({ icon: Icon, title, description, action, tone = "
         <Icon className="size-5" aria-hidden />
       </span>
       <h2 className="mt-5 text-base font-semibold tracking-tight">{title}</h2>
-      {description && <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{description}</p>}
+      {description && (
+        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{description}</p>
+      )}
       {action && <div className="mt-6">{action}</div>}
     </div>
   );

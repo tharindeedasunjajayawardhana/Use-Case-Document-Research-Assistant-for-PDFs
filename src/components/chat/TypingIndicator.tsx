@@ -3,7 +3,11 @@ import { motion, useReducedMotion } from "framer-motion";
 export function TypingIndicator() {
   const reduce = useReducedMotion();
   return (
-    <div role="status" aria-live="polite" className="flex w-fit items-center gap-1.5 rounded-2xl border bg-card px-4 py-3.5 shadow-soft">
+    <div
+      role="status"
+      aria-live="polite"
+      className="flex w-fit items-center gap-1.5 rounded-2xl border bg-card px-4 py-3.5 shadow-soft"
+    >
       <span className="sr-only">Assistant is reading the paper…</span>
       {[0, 1, 2].map((i) => (
         <motion.span

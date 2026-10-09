@@ -29,9 +29,12 @@ export function ChatTab({ paperId, lang }: { paperId: string; lang: ResponseLang
             <span className="grid size-12 place-items-center rounded-2xl bg-primary-soft text-primary">
               <MessageSquareText className="size-5" aria-hidden />
             </span>
-            <h2 className="mt-5 text-lg font-semibold tracking-tight">Ask anything about this paper</h2>
+            <h2 className="mt-5 text-lg font-semibold tracking-tight">
+              Ask anything about this paper
+            </h2>
             <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-              Answers are grounded in the uploaded paper, with page citations you can open and check.
+              Answers are grounded in the uploaded paper, with page citations you can open and
+              check.
             </p>
             <ul className="mt-7 grid w-full gap-2" aria-label="Suggested questions">
               {SUGGESTIONS.map((s) => (
@@ -50,16 +53,22 @@ export function ChatTab({ paperId, lang }: { paperId: string; lang: ResponseLang
           </div>
         ) : (
           <ol className="space-y-5 pb-6" aria-label="Conversation" aria-live="polite">
-            {messages.map((m) => <ChatMessageItem key={m.id} message={m} />)}
+            {messages.map((m) => (
+              <ChatMessageItem key={m.id} message={m} />
+            ))}
           </ol>
         )}
         {isSending && <TypingIndicator />}
         {isError && !isSending && (
-          <div role="alert" className="flex flex-wrap items-center gap-3 rounded-xl border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm">
+          <div
+            role="alert"
+            className="flex flex-wrap items-center gap-3 rounded-xl border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm"
+          >
             <AlertCircle className="size-4 text-destructive" aria-hidden />
             <span className="flex-1">We couldn't get an answer. Please try again.</span>
             <Button size="sm" variant="outline" onClick={retry} className="rounded-lg">
-              <RotateCcw className="size-3.5" aria-hidden />Retry
+              <RotateCcw className="size-3.5" aria-hidden />
+              Retry
             </Button>
           </div>
         )}

@@ -169,7 +169,11 @@ const SUMMARIES: Record<"en" | "ja" | "si", Summary> = {
   },
 };
 
-type Topic = { keywords: RegExp; content: Partial<Record<"en" | "ja" | "si", string>> & { en: string }; sources: Source[] };
+type Topic = {
+  keywords: RegExp;
+  content: Partial<Record<"en" | "ja" | "si", string>> & { en: string };
+  sources: Source[];
+};
 
 const SNIPPETS: Record<number, string> = {
   2: "The inherently sequential nature of recurrent models precludes parallelization within training examples, which becomes critical at longer sequence lengths.",
@@ -183,7 +187,8 @@ const SNIPPETS: Record<number, string> = {
   10: "We are excited about the future of attention-based models… We plan to extend the Transformer to problems involving input and output modalities other than text.",
 };
 
-const src = (...pages: number[]): Source[] => pages.map((page) => ({ page, snippet: SNIPPETS[page] ?? "" }));
+const src = (...pages: number[]): Source[] =>
+  pages.map((page) => ({ page, snippet: SNIPPETS[page] ?? "" }));
 
 const TOPICS: Topic[] = [
   {

@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
-import { AlertCircle, FlaskConical, Lightbulb, ListChecks, RotateCcw, ScrollText, Target } from "lucide-react";
+import {
+  AlertCircle,
+  FlaskConical,
+  Lightbulb,
+  ListChecks,
+  RotateCcw,
+  ScrollText,
+  Target,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { StatusMessage } from "@/components/layout/StatusMessage";
 import { useSummary } from "@/hooks/useSummary";
@@ -7,7 +15,12 @@ import type { ResponseLanguage, Summary } from "@/lib/types";
 import { SummaryCard } from "./SummaryCard";
 import { SummarySkeleton } from "./SummarySkeleton";
 
-const SECTIONS: { key: keyof Omit<Summary, "title" | "authors">; title: string; icon: typeof Target; wide?: boolean }[] = [
+const SECTIONS: {
+  key: keyof Omit<Summary, "title" | "authors">;
+  title: string;
+  icon: typeof Target;
+  wide?: boolean;
+}[] = [
   { key: "abstract", title: "Abstract", icon: ScrollText, wide: true },
   { key: "problem_statement", title: "Problem Statement", icon: Target },
   { key: "methodology", title: "Methodology", icon: FlaskConical },
@@ -47,11 +60,18 @@ export function SummaryTab({ paperId, lang }: { paperId: string; lang: ResponseL
       >
         <div className="pointer-events-none absolute inset-0 bg-hero-glow opacity-70" aria-hidden />
         <div className="relative">
-          <p className="text-xs font-medium uppercase tracking-wider text-brown dark:text-sage">Title & Authors</p>
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-balance sm:text-3xl">{data.title}</h2>
+          <p className="text-xs font-medium uppercase tracking-wider text-brown dark:text-sage">
+            Title & Authors
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
+            {data.title}
+          </h2>
           <ul className="mt-4 flex flex-wrap gap-2" aria-label="Authors">
             {data.authors.map((a) => (
-              <li key={a} className="rounded-lg border bg-background/70 px-2.5 py-1 text-sm text-muted-foreground">
+              <li
+                key={a}
+                className="rounded-lg border bg-background/70 px-2.5 py-1 text-sm text-muted-foreground"
+              >
                 {a}
               </li>
             ))}

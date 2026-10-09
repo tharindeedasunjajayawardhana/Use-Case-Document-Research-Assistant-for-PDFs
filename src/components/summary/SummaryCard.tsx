@@ -20,7 +20,10 @@ export function SummaryCard({ title, icon: Icon, content, index }: Props) {
       className="rounded-3xl border bg-card p-6 shadow-soft sm:p-7"
       aria-labelledby={`summary-${index}`}
     >
-      <h3 id={`summary-${index}`} className="flex items-center gap-2.5 text-sm font-semibold tracking-tight">
+      <h3
+        id={`summary-${index}`}
+        className="flex items-center gap-2.5 text-sm font-semibold tracking-tight"
+      >
         <Icon className="size-4 text-primary" aria-hidden />
         {title}
       </h3>

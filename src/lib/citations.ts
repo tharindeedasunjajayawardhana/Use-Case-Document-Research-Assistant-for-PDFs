@@ -1,8 +1,7 @@
 import type { Source } from "./types";
 
 export type CitationSegment =
-  | { type: "text"; value: string }
-  | { type: "citation"; pages: number[] };
+  { type: "text"; value: string } | { type: "citation"; pages: number[] };
 
 const CITATION_RE = /\[\s*(?:pages?|pp?\.)\s*([\d\s,\-–—]+?)\s*\]/gi;
 

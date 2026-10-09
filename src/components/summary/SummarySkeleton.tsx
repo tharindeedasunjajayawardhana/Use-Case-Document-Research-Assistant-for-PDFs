@@ -8,12 +8,17 @@ export function SummarySkeleton() {
         <Skeleton className="h-3 w-24" />
         <Skeleton className="mt-4 h-7 w-2/3" />
         <div className="mt-4 flex gap-2">
-          {[0, 1, 2].map((i) => <Skeleton key={i} className="h-6 w-28 rounded-lg" />)}
+          {[0, 1, 2].map((i) => (
+            <Skeleton key={i} className="h-6 w-28 rounded-lg" />
+          ))}
         </div>
       </div>
       <div className="grid gap-4 md:grid-cols-2">
         {[0, 1, 2, 3, 4].map((i) => (
-          <div key={i} className={`rounded-3xl border bg-card p-7 shadow-soft ${i === 0 ? "md:col-span-2" : ""}`}>
+          <div
+            key={i}
+            className={`rounded-3xl border bg-card p-7 shadow-soft ${i === 0 ? "md:col-span-2" : ""}`}
+          >
             <Skeleton className="h-4 w-32" />
             <div className="mt-4 space-y-2.5">
               <Skeleton className="h-3.5 w-full" />

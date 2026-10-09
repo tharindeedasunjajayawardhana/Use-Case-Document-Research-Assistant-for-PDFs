@@ -38,16 +38,25 @@ export function CitationPanel({ filename }: { filename: string }) {
                     : "fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col overflow-y-auto border-l bg-card p-7 shadow-lifted focus:outline-none"
                 }
               >
-                {isMobile && <div className="mx-auto mb-5 h-1 w-10 rounded-full bg-border" aria-hidden />}
+                {isMobile && (
+                  <div className="mx-auto mb-5 h-1 w-10 rounded-full bg-border" aria-hidden />
+                )}
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Source</p>
+                    <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                      Source
+                    </p>
                     <Dialog.Title className="mt-1 text-xl font-semibold tracking-tight">
                       Source · Page {citation.page}
                     </Dialog.Title>
                   </div>
                   <Dialog.Close asChild>
-                    <Button variant="ghost" size="icon" className="rounded-xl" aria-label="Close source panel">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="rounded-xl"
+                      aria-label="Close source panel"
+                    >
                       <X className="size-4" aria-hidden />
                     </Button>
                   </Dialog.Close>
@@ -74,7 +83,9 @@ export function CitationPanel({ filename }: { filename: string }) {
                     <ExternalLink className="size-4" aria-hidden />
                     Open PDF page
                   </Button>
-                  <p id="open-pdf-soon" className="text-center text-xs text-muted-foreground">Coming soon</p>
+                  <p id="open-pdf-soon" className="text-center text-xs text-muted-foreground">
+                    Coming soon
+                  </p>
                 </div>
               </motion.div>
             </Dialog.Content>
