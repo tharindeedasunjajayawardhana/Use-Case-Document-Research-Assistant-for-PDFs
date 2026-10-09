@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 
 interface Props {
   pages: number[];
-  onDismiss?: () => void;
-  className?: string;
+  onDismiss?: () => void | undefined;
+  className?: string | undefined;
 }
 
 export function LowTextWarning({ pages, onDismiss, className }: Props) {

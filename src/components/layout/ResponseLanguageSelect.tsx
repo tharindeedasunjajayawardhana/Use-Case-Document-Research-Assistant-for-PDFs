@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 interface Props {
   value: ResponseLanguage;
   onChange: (lang: ResponseLanguage) => void;
-  compact?: boolean;
-  className?: string;
+  compact?: boolean | undefined;
+  className?: string | undefined;
 }
 
 export function ResponseLanguageSelect({ value, onChange, compact, className }: Props) {

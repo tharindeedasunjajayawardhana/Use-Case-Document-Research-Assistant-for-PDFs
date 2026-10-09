@@ -6,10 +6,10 @@ import { useCitation } from "./CitationContext";
 
 interface Props {
   page: number;
-  sources?: Source[];
+  sources?: Source[] | undefined;
   /** "full" shows "Page 5", "number" shows "5". */
-  label?: "full" | "number";
-  className?: string;
+  label?: "full" | "number" | undefined;
+  className?: string | undefined;
 }
 
 export function CitationChip({ page, sources, label = "full", className }: Props) {

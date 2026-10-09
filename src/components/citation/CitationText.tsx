@@ -4,7 +4,7 @@ import type { Source } from "@/lib/types";
 import { CitationChip } from "./CitationChip";
 
 /** Renders plain API text, turning [Page N] / [Pages A–B] markers into chips. */
-export function CitationText({ text, sources }: { text: string; sources?: Source[] }) {
+export function CitationText({ text, sources }: { text: string; sources?: Source[] | undefined }) {
   const paragraphs = useMemo(
     () => text.split(/\n{2,}/).map((p) => parseCitations(p)),
     [text],

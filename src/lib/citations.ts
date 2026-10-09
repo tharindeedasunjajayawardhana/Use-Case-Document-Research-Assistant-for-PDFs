@@ -52,6 +52,6 @@ export function formatPageRanges(pages: number[]): string {
   return `${sorted.length === 1 ? "Page" : "Pages"} ${ranges.join(", ")}`;
 }
 
-export function findSnippet(page: number, sources: Source[] = []): string | undefined {
+export function findSnippet(page: number, sources: Source[] | undefined = []): string | undefined {
   return sources.find((s) => s.page === page)?.snippet;
 }

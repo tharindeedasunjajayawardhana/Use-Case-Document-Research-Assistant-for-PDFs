@@ -3,9 +3,9 @@ import { CitationChip } from "./CitationChip";
 
 interface Props {
   pages: number[];
-  sources?: Source[];
-  label?: "full" | "number";
-  emptyText?: string;
+  sources?: Source[] | undefined;
+  label?: "full" | "number" | undefined;
+  emptyText?: string | undefined;
 }
 
 export function SourceList({ pages, sources, label = "full", emptyText }: Props) {
