@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 interface Props {
   onFile: (file: File) => void;
-  error?: string | null;
+  error?: string | null | undefined;
 }
 
 export function UploadDropzone({ onFile, error }: Props) {

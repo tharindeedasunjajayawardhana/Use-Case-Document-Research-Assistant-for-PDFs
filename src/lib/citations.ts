@@ -11,7 +11,7 @@ export function expandPages(spec: string): number[] {
   const pages: number[] = [];
   for (const part of spec.split(",")) {
     const [a, b] = part.split(/[-–—]/).map((s) => parseInt(s.trim(), 10));
-    if (Number.isNaN(a)) continue;
+    if (a === undefined || Number.isNaN(a)) continue;
     if (b === undefined || Number.isNaN(b)) pages.push(a);
     else for (let p = Math.min(a, b); p <= Math.max(a, b); p++) pages.push(p);
   }
@@ -23,7 +23,7 @@ export function parseCitations(text: string): CitationSegment[] {
   const segments: CitationSegment[] = [];
   let last = 0;
   for (const match of text.matchAll(CITATION_RE)) {
-    const pages = expandPages(match[1]);
+    const pages = expandPages(match[1] ?? "");
     if (!pages.length) continue;
     const start = match.index ?? 0;
     if (start > last) segments.push({ type: "text", value: text.slice(last, start) });
@@ -39,8 +39,8 @@ export function formatPageRanges(pages: number[]): string {
   const sorted = Array.from(new Set(pages)).sort((a, b) => a - b);
   if (!sorted.length) return "";
   const ranges: string[] = [];
-  let start = sorted[0];
-  let prev = sorted[0];
+  let start = sorted[0] as number;
+  let prev = start;
   for (const p of [...sorted.slice(1), Infinity]) {
     if (p === prev + 1) {
       prev = p;
@@ -52,6 +52,6 @@ export function formatPageRanges(pages: number[]): string {
   return `${sorted.length === 1 ? "Page" : "Pages"} ${ranges.join(", ")}`;
 }
 
-export function findSnippet(page: number, sources: Source[] = []): string | undefined {
+export function findSnippet(page: number, sources: Source[] | undefined = []): string | undefined {
   return sources.find((s) => s.page === page)?.snippet;
 }

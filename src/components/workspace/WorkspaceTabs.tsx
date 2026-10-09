@@ -15,7 +15,7 @@ const TABS: { value: string; label: string; icon: LucideIcon; Component: Compone
 ];
 
 export function WorkspaceTabs(props: TabProps) {
-  const [tab, setTab] = useState(TABS[0].value);
+  const [tab, setTab] = useState("summary");
   const Active = TABS.find((t) => t.value === tab)?.Component ?? SummaryTab;
   return (
     <Tabs value={tab} onValueChange={setTab}>

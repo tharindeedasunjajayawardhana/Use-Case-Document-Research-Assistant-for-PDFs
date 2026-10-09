@@ -10,7 +10,7 @@ export function TypingIndicator() {
           key={i}
           aria-hidden
           className="size-1.5 rounded-full bg-muted-foreground"
-          animate={reduce ? undefined : { opacity: [0.3, 1, 0.3], y: [0, -2, 0] }}
+          animate={reduce ? {} : { opacity: [0.3, 1, 0.3], y: [0, -2, 0] }}
           transition={{ duration: 1.1, repeat: Infinity, delay: i * 0.15, ease: "easeInOut" }}
         />
       ))}

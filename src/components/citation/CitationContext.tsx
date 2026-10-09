@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useMemo, useState, type ReactNo
 
 export interface ActiveCitation {
   page: number;
-  snippet?: string;
+  snippet?: string | undefined;
 }
 
 interface CitationContextValue {
