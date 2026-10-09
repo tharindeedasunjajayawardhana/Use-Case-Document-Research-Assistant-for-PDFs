@@ -12,7 +12,7 @@ import type { ChatMessage, Paper, ResponseLanguage, Source, Summary } from "./ty
 
 export const USE_MOCK = true;
 
-const API_URL = (import.meta.env.VITE_API_URL as string | undefined)?.replace(/\/$/, "") ?? "";
+const API_URL = (import.meta.env["VITE_API_URL"] as string | undefined)?.replace(/\/$/, "") ?? "";
 
 export class ApiError extends Error {
   constructor(
@@ -183,7 +183,7 @@ const SNIPPETS: Record<number, string> = {
   10: "We are excited about the future of attention-based models… We plan to extend the Transformer to problems involving input and output modalities other than text.",
 };
 
-const src = (...pages: number[]): Source[] => pages.map((page) => ({ page, snippet: SNIPPETS[page] }));
+const src = (...pages: number[]): Source[] => pages.map((page) => ({ page, snippet: SNIPPETS[page] ?? "" }));
 
 const TOPICS: Topic[] = [
   {

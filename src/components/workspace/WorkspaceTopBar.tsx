@@ -9,7 +9,7 @@ import type { Paper, ResponseLanguage } from "@/lib/types";
 
 interface Props {
   paper: Paper;
-  title?: string;
+  title?: string | undefined;
   lang: ResponseLanguage;
   onLangChange: (l: ResponseLanguage) => void;
 }

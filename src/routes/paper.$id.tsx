@@ -5,7 +5,7 @@ import type { ResponseLanguage } from "@/lib/types";
 
 export const Route = createFileRoute("/paper/$id")({
   validateSearch: (search: Record<string, unknown>): { lang: ResponseLanguage } => ({
-    lang: isResponseLanguage(search.lang) ? search.lang : "auto",
+    lang: isResponseLanguage(search["lang"]) ? search["lang"] : "auto",
   }),
   head: () => ({
     meta: [
