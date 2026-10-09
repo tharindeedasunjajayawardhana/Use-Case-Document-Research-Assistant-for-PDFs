@@ -21,11 +21,9 @@ export function ResponseLanguageSelect({ value, onChange, compact, className }: 
         Response language
       </Label>
       <Select value={value} onValueChange={(v) => isResponseLanguage(v) && onChange(v)}>
-        <SelectTrigger id={id} className={cn("rounded-xl bg-card", compact ? "h-9 w-[132px]" : "h-11 w-full")}>
-          <span className="flex items-center gap-2">
-            <Languages className="size-4 text-muted-foreground" aria-hidden />
-            <SelectValue />
-          </span>
+        <SelectTrigger id={id} className={cn("gap-2 rounded-xl bg-card", compact ? "h-9 w-[132px]" : "h-11 w-full")}>
+          <Languages className="size-4 shrink-0 text-muted-foreground" aria-hidden />
+          <span className="flex-1 text-left"><SelectValue /></span>
         </SelectTrigger>
         <SelectContent className="rounded-xl">
           {RESPONSE_LANGUAGE_OPTIONS.map((o) => (
